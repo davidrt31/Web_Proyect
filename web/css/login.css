@@ -1,0 +1,290 @@
+body {
+  background: url("https://raw.githubusercontent.com/Davix3104/Proyecto_Web/main/images/FondoDonGil2.jpg")
+    no-repeat;
+  background-position: unset;
+  background-size: cover;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/*ESTILOS DE FORMULARIO LOGIN*/
+.login__container {
+  background: transparent;
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: -5px 5px 5px rgb(138, 43, 226, 0.2);
+  height: 420px;
+  padding: 1rem;
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  width: 450px;
+}
+
+.login__container h1 {
+  text-align: center;
+  margin-top: 15px;
+  padding: 0 0 20px 0;
+  color: white;
+  border-bottom: 1px white solid;
+}
+
+.login__container form {
+  padding: 0 40px;
+}
+
+.login__container .username,
+.login__container .password {
+  position: relative;
+  border-bottom: 2px white solid;
+  margin: 30px 0;
+}
+
+.username input,
+.password input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background: transparent;
+  outline: none;
+  border: transparent;
+}
+
+.username label,
+.password label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: white;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.username input:focus ~ label,
+.password input:focus ~ label {
+  top: -5px;
+  color: white;
+  font-weight: bold;
+}
+
+.recordar {
+  margin: -5px 0 20px 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.recordar:hover {
+  text-decoration: underline;
+}
+
+input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  background-color: #6c3483;
+  border-radius: 15px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  border-color: transparent;
+  outline: none;
+}
+
+input[type="submit"]:hover {
+  border: 1px white solid;
+  color: white;
+  font-weight: bold;
+  background: transparent;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.registro {
+  justify-content: center;
+  display: grid;
+  grid-template-areas: ".info .btn__regis";
+  gap: 8px;
+  margin: 15px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+}
+
+#btn__regis {
+  display: none;
+}
+
+.registro label {
+  color: white;
+  cursor: pointer;
+}
+
+.registro .btn__regis:hover {
+  font-weight: bold;
+}
+
+/*ESTILOS DE FORMULARIO REGISTRO*/
+#btnBack {
+  display: none;
+}
+
+.register__container {
+  display: none;
+  text-align: center;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: -5px 5px 5px rgb(138, 43, 226, 0.2);
+  height: 470px;
+  padding: 1rem;
+  position: absolute;
+  left: 55%;
+  top: 18.5%;
+  width: 500px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.register__container i {
+  font-size: 40px;
+  position: fixed;
+  left: 2%;
+  color: white;
+  top: 5%;
+  cursor: pointer;
+  margin: 4px 4px 4px;
+}
+
+.register__container h1 {
+  text-align: center;
+  margin-top: 15px;
+  padding: 0 0 20px 0;
+  color: white;
+  border-bottom: 1px white solid;
+}
+
+.register__container form {
+  padding: 0 10px;
+}
+
+.register__container .names,
+.register__container .mail,
+.register__container .reg__password {
+  position: relative;
+  border-bottom: 2px white solid;
+  margin: 30px 0;
+}
+
+.register__container .last__names {
+  position: relative;
+  border-bottom: 2px white solid;
+  margin: 30px 0;
+}
+
+.names input,
+.mail input,
+.reg__password input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background: transparent;
+  outline: none;
+  border: transparent;
+}
+
+.last__names input {
+  width: 90%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background: transparent;
+  outline: none;
+  border: transparent;
+}
+
+.last__names .ape__mat {
+  margin-left: 20px;
+}
+
+.last__names {
+  display: grid;
+  grid-template-areas: ".ape__pat .ape__mat" ".label__1 .label__2";
+}
+
+.last__names::before {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  content: "|";
+  display: block;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  left: 42.5%;
+  position: absolute;
+}
+
+.last__names .label__1 {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: white;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.last__names .label__2 {
+  position: absolute;
+  top: 50%;
+  left: 215px;
+  color: white;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.names label,
+.mail label,
+.reg__password label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: white;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.names input:focus ~ label,
+.mail input:focus ~ label,
+.reg__password input:focus ~ label {
+  top: -5px;
+  color: white;
+  font-weight: bold;
+}
+
+.last__names .ape__pat:focus ~ .label__1 {
+  top: -5px;
+  color: white;
+  font-weight: bold;
+}
+
+.last__names .ape__mat:focus ~ .label__2 {
+  top: -5px;
+  color: white;
+  font-weight: bold;
+}
+
+.register__container input[type="submit"] {
+  width: 85%;
+}
