@@ -24,8 +24,8 @@
                 }
             ?>
             <input type="submit" value="Ingresar">
-            <div class="registro ">
-                <p class="info">¿No tienes cuenta?</p>
+            <div class="registro">
+                <span class="info">¿No tienes cuenta?</span>
                 <input type="checkbox" id="btn__regis">
                 <div class="btn__regis">
                     <label for="btn__regis">REGÍSTRATE</label>
@@ -36,10 +36,6 @@
 
     <!--FORMULARIO (REGISTRO)-->
     <div id="contenedor" class="register__container">
-        <input type="checkbox" id="btnBack">
-        <div class="btnBack">
-            <i class="uil uil-angle-left"></i>
-        </div>
         <h1>Registrarse</h1>
         <form action="registrar.php" method="POST" autocomplete="off">
             <div class="names">
