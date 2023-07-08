@@ -9,6 +9,12 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 $url = "http://" . $url1;
 ?>
 
+<?php 
+    session_start();
+    if(isset($_SESSION['usuario'])){ $usuario = $_SESSION['usuario']; }
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -28,10 +34,7 @@ $url = "http://" . $url1;
 
     <link rel="shortcut icon" href="<?php echo $url; ?>/web/assets/DonGil.ico" type="image/x-icon">
     <style>
-    body {
-        /*background-color: rgba(177, 180, 200);*/
-    }
-
+    
     #nav-center-index {
         width: 80%;
         margin: 0 auto;
@@ -212,6 +215,13 @@ $url = "http://" . $url1;
 
                     <div id="menu-user" class="col collapse navbar-collapse navbar-left" id="navbarNavDropdown">
                         <ul class="navbar-nav">
+                            <?php if(isset($_SESSION['usuario'])){ ?>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="<?php echo $url; ?>/web/index.php">
+                                        <span id="home"><i class="bi bi-house"></i>&nbsp; Bienvenido <?= $usuario['nombre'] ?>!</span>
+                                    </a>
+                                </li>
+                            <?php } ?>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="<?php echo $url; ?>/web/index.php">
                                     <span id="home"><i class="bi bi-house"></i>&nbsp; Inicio</span>
@@ -231,11 +241,18 @@ $url = "http://" . $url1;
                                         Mi Cuenta</a></span>
                                 <ul class="dropdown-menu mt-2 border border-light text-left">
                                     <li><a class="dropdown-item" href="<?php echo $url; ?>/views/site/login.php"><span
-                                                class="text-white" style=""><i
+                                                class="text-white" ><i
                                                     class="bi bi-box-arrow-in-right"></i>&nbsp;
                                                 Iniciar Sesión / Registrarse</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="#"><span class="text-white" style="">&nbsp;<i
+                                    <?php if(isset($_SESSION['usuario'])){ ?>
+                                        <li><a class="dropdown-item" href="<?php echo $url; ?>/views/site/utils/cerrarSesion.php"><span
+                                                    class="text-white" ><i
+                                                        class="bi bi-box-arrow-in-right"></i>&nbsp;
+                                                    Cerrar Sesión</a>
+                                        </li>
+                                    <?php } ?>
+                                    <li><a class="dropdown-item" href="#"><span class="text-white" >&nbsp;<i
                                                     class="bi bi-box-seam" style="font-size: 13px"></i>&nbsp; Mis
                                                 pedidos</a>
                                     </li>

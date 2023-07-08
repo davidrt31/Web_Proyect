@@ -110,8 +110,8 @@
 
         public function getProductsbyCategory($categoria)
         {
-            $statement = $this->PDO->prepare("SELECT * FROM productos WHERE cate_prod = :cate_prod");
-            $statement->bindParam(":cate_prod",$categoria);
+            $statement = $this->PDO->prepare("SELECT * FROM productos WHERE categoria = :categoria");
+            $statement->bindParam(":categoria",$categoria);
             return ($statement->execute()) ? $statement->fetchAll() : false;
         }
     }

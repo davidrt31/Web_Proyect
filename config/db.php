@@ -1,7 +1,7 @@
 <?php
     class db{
         private $host = 'localhost';
-        private $dbname = 'bd_dongil';
+        private $dbname = 'dongilbd';
         private $user = 'root';
         private $password = '';
 

@@ -26,7 +26,7 @@
     <h3 class=" text-center mt-5 mb-5">NUESTRAS CATEGORÍAS</h3>
     <div class="row row-cols-4 row-gap-3">
         <div class="col text-center">
-            <a href="#" type="input" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=CARNES, AVES Y PESCADOS" type="input" style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
@@ -39,7 +39,7 @@
             </a>
         </div>
         <div class="col text-center">
-            <a href="" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=CONGELADOS" style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
@@ -52,7 +52,7 @@
             </a>
         </div>
         <div class="col text-center">
-            <a href="" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=LÁCTEOS" style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
@@ -65,7 +65,7 @@
             </a>
         </div>
         <div class="col text-center">
-            <a href="" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=FRUTAS Y VERDURAS" style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
@@ -78,7 +78,7 @@
             </a>
         </div>
         <div class="col text-center">
-            <a href="" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=PANADERÍA Y PASTELERÍA" style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
@@ -91,7 +91,7 @@
             </a>
         </div>
         <div class="col text-center">
-            <a href="" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=BEBIDAS" style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
@@ -104,7 +104,7 @@
             </a>
         </div>
         <div class="col text-center">
-            <a href="" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=CUIDADO PERSONAL" style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
@@ -117,7 +117,7 @@
             </a>
         </div>
         <div class="col text-center">
-            <a href="" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=LIMPIEZA" style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"

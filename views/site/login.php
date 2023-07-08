@@ -4,13 +4,13 @@
 </div>
 <link rel="stylesheet" href="/Web_Proyect/web/css/login.css">
 
-<div id="cont-login" style="">
+<div id="cont-login" >
     <!--FORMULARIO (INICIO DE SESIÓN)-->
     <div id="loginContenedor" class="login__container">
         <h1>Inicio de Sesión</h1>
-        <form action="ingresar.php" method="POST" autocomplete="off">
+        <form action="utils/ingresar.php" method="POST" autocomplete="off">
             <div class="username">
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="correo" required>
                 <label>Correo</label>
             </div>
             <div class="password">
@@ -24,8 +24,8 @@
                 }
             ?>
             <input type="submit" value="Ingresar">
-            <div class="registro">
-                <span class="info">¿No tienes cuenta?</span>
+            <div class="registro ">
+                <p class="info">¿No tienes cuenta?</p>
                 <input type="checkbox" id="btn__regis">
                 <div class="btn__regis">
                     <label for="btn__regis">REGÍSTRATE</label>
@@ -36,8 +36,12 @@
 
     <!--FORMULARIO (REGISTRO)-->
     <div id="contenedor" class="register__container">
+        <input type="checkbox" id="btnBack">
+        <div class="btnBack">
+            <i class="uil uil-angle-left"></i>
+        </div>
         <h1>Registrarse</h1>
-        <form action="registrar.php" method="POST" autocomplete="off">
+        <form action="utils/registrar.php" method="POST" autocomplete="off">
             <div class="names">
                 <input type="text" id="name" name="name" required>
                 <label>Ingrese su Nombre</label>

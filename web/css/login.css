@@ -7,15 +7,13 @@ body {
   font-family: "Ubuntu", sans-serif;
 }
 
-
-
 /*ESTILOS DE FORMULARIO LOGIN*/
 .login__container {
-  background: rgb(0, 0, 0, 0.3);
+  background: transparent;
   backdrop-filter: blur(8px);
   border-radius: 12px;
   box-shadow: -5px 5px 5px rgb(138, 43, 226, 0.2);
-  height: fit-content;
+  height: 420px;
   padding: 1rem;
   position: absolute;
   left: 5%;
@@ -105,11 +103,12 @@ input[type="submit"]:hover {
 }
 
 .registro {
+  justify-content: center;
   display: grid;
   grid-template-areas: ".info .btn__regis";
-  justify-content: center;
   gap: 8px;
-  margin-top: 8px;
+  margin: 15px;
+  text-align: center;
   font-size: 16px;
   color: white;
 }
@@ -128,26 +127,40 @@ input[type="submit"]:hover {
 }
 
 /*ESTILOS DE FORMULARIO REGISTRO*/
+#btnBack {
+  display: none;
+}
+
 .register__container {
   display: none;
   text-align: center;
-  background: rgb(0, 0, 0, 0.3);
+  background: transparent;
   backdrop-filter: blur(8px);
   border-radius: 12px;
   box-shadow: -5px 5px 5px rgb(138, 43, 226, 0.2);
-  height: fit-content;
+  height: 470px;
   padding: 1rem;
   position: absolute;
   left: 55%;
-  top: 17.5%;
+  top: 18.5%;
   width: 500px;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
+.register__container i {
+  font-size: 40px;
+  position: fixed;
+  left: 2%;
+  color: white;
+  top: 5%;
+  cursor: pointer;
+  margin: 4px 4px 4px;
+}
+
 .register__container h1 {
   text-align: center;
-  margin-top: 8px;
+  margin-top: 15px;
   padding: 0 0 20px 0;
   color: white;
   border-bottom: 1px white solid;
@@ -231,7 +244,7 @@ input[type="submit"]:hover {
 .last__names .label__2 {
   position: absolute;
   top: 50%;
-  left: 238px;
+  left: 215px;
   color: white;
   transform: translateY(-50%);
   font-size: 16px;
