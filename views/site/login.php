@@ -36,10 +36,6 @@
 
     <!--FORMULARIO (REGISTRO)-->
     <div id="contenedor" class="register__container">
-        <input type="checkbox" id="btnBack">
-        <div class="btnBack">
-            <i class="uil uil-angle-left"></i>
-        </div>
         <h1>Registrarse</h1>
         <form action="utils/registrar.php" method="POST" autocomplete="off">
             <div class="names">

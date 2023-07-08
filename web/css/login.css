@@ -13,7 +13,7 @@ body {
   backdrop-filter: blur(8px);
   border-radius: 12px;
   box-shadow: -5px 5px 5px rgb(138, 43, 226, 0.2);
-  height: 420px;
+  height: fit-content;
   padding: 1rem;
   position: absolute;
   left: 5%;
@@ -127,10 +127,6 @@ input[type="submit"]:hover {
 }
 
 /*ESTILOS DE FORMULARIO REGISTRO*/
-#btnBack {
-  display: none;
-}
-
 .register__container {
   display: none;
   text-align: center;
@@ -138,7 +134,7 @@ input[type="submit"]:hover {
   backdrop-filter: blur(8px);
   border-radius: 12px;
   box-shadow: -5px 5px 5px rgb(138, 43, 226, 0.2);
-  height: 470px;
+  height: fit-content;
   padding: 1rem;
   position: absolute;
   left: 55%;

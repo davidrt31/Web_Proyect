@@ -28,7 +28,7 @@
 
 
 
-<div class="container-fluid" style="margin-top: 7.5rem">
+<div class="container-fluid" style="margin-top: 6.5rem">
 
     <div class="row row-cols-5 row-gap-3 p-5" style="margin-bottom: -22px">
         <?php 

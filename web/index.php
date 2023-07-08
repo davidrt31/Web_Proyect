@@ -2,31 +2,15 @@
 
 </div>
 
-<div class="container-md" style="margin-top: 6.5rem; margin-bottom: 2.50rem">
-    <div class="banner-promos">
-        <div class="info__promos text-light">
-            <h4 class="p-2">SOLO POR EL MES DE JUNIO</h4>
-        </div>
-        <section class="promos__container mySwiper text-center">
-            <div class="swiper-wrapper">
-                <a class="promos swiper-slide" href="">
-                    <img src="/Web_Proyect/web/assets/banners/NOT FOUNDED.png" alt="b" width="1116" height="320">
-                </a>
-                <a class="promos swiper-slide" href="">
-                    <img src="/Web_Proyect/web/assets/banners/NOT FOUNDED.png" alt="b" width="1116" height="320">
-                </a>
-                <a class="promos swiper-slide" href="">
-                    <img src="/Web_Proyect/web/assets/banners/NOT FOUNDED.png" alt="b" width="1116" height="320">
-                </a>
-            </div>
-        </section>
-    </div>
-    <br>
-    <hr>
+<div class="container-fluid" style="margin-top: 4.443rem; width:100%; background: green">
+    <img src="../assets/images/NOT FOUNDED.png" alt="" style="width: 100%; height: 350px">
+</div>
+<div class="container-md" style=" margin-bottom: 2.50rem">
     <h3 class=" text-center mt-5 mb-5">NUESTRAS CATEGORÍAS</h3>
     <div class="row row-cols-4 row-gap-3">
         <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=CARNES, AVES Y PESCADOS" type="input" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=CARNES, AVES Y PESCADOS" type="input"
+                style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
@@ -78,7 +62,8 @@
             </a>
         </div>
         <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=PANADERÍA Y PASTELERÍA" style="text-decoration: none">
+            <a href="/Web_Proyect/views/site/productos.php?categoria=PANADERÍA Y PASTELERÍA"
+                style="text-decoration: none">
                 <div id="card-categorias" class="card rounded">
                     <div class="img-container text-center" style="margin-top: 16px">
                         <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"

@@ -33,15 +33,15 @@
                     <?php foreach ($rows as $row): ?>
                         <tr>
                             <td scope="row"><?= $row['id']?></td>
-                            <td scope="row"><?= $row['name_prod']?></td>
+                            <td scope="row"><?= $row['nombre']?></td>
                             <td scope="row">
-                                <img width="50" height="50" src="/Web_Proyect/assets/images/<?= $row['img_prod']?>" alt="">    
+                                <img width="50" height="50" src="/Web_Proyect/assets/images/<?= $row['imagen']?>" alt="">    
                             </td>
-                            <td scope="row"><?= $row['cate_prod']?></td>
-                            <td scope="row"><?= $row['desc_prod']?></td>
-                            <td scope="row"><?= $row['prov_prod']?></td>
-                            <td scope="row ">S/.<?= $row['cost_prod']?></td>
-                            <td scope="row">&nbsp;&nbsp;&nbsp;&nbsp; <?= $row['stock_prod']?></td>
+                            <td scope="row"><?= $row['categoria']?></td>
+                            <td scope="row"><?= $row['descripcion']?></td>
+                            <td scope="row"><?= $row['proveedor']?></td>
+                            <td scope="row ">S/.<?= $row['precio']?></td>
+                            <td scope="row">&nbsp;&nbsp;&nbsp;&nbsp; <?= $row['stock']?></td>
                             <td scope="row">
                                 <a href="show.php?id=<?= $row['id']?>" class="btn btn-success" style="margin-top: -3px; margin-bottom: -3px">Detalles</a>
                             </td>

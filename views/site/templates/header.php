@@ -34,7 +34,6 @@ $url = "http://" . $url1;
 
     <link rel="shortcut icon" href="<?php echo $url; ?>/web/assets/DonGil.ico" type="image/x-icon">
     <style>
-    
     #nav-center-index {
         width: 80%;
         margin: 0 auto;
@@ -87,9 +86,16 @@ $url = "http://" . $url1;
         width: 98px;
     }
 
-    #myaccount:hover::before {
-        width: 108px;
-    }
+    <?php if(isset($_SESSION['usuario'])){ ?>
+        #myaccount:hover::before {
+            width: 90%;
+        }
+    <?php } else {?>
+        #myaccount:hover::before {
+            width: 108px;
+        }
+    <?php }?>
+    
 
     #mycarrito:hover::before {
         width: 95px;
@@ -127,25 +133,7 @@ $url = "http://" . $url1;
 
 
     /*--PROMOCIONES--*/
-    .info__promos {
-        background: rgb(101, 17, 179);
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        height: 3rem;
-        justify-content: right;
-        text-align: center;
-    }
-
-    .promos__container {
-        background: transparent;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        height: 20rem;
-        overflow: hidden;
-        border-left: 0.5px blueviolet solid;
-        border-bottom: 0.5px blueviolet solid;
-        border-right: 0.5px blueviolet solid;
-    }
+    
 
     .info__ofertas {
         background: rgb(28, 37, 173);
@@ -215,13 +203,6 @@ $url = "http://" . $url1;
 
                     <div id="menu-user" class="col collapse navbar-collapse navbar-left" id="navbarNavDropdown">
                         <ul class="navbar-nav">
-                            <?php if(isset($_SESSION['usuario'])){ ?>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="<?php echo $url; ?>/web/index.php">
-                                        <span id="home"><i class="bi bi-house"></i>&nbsp; Bienvenido <?= $usuario['nombre'] ?>!</span>
-                                    </a>
-                                </li>
-                            <?php } ?>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="<?php echo $url; ?>/web/index.php">
                                     <span id="home"><i class="bi bi-house"></i>&nbsp; Inicio</span>
@@ -233,37 +214,48 @@ $url = "http://" . $url1;
                                     <span id="products"><i class="bi bi-basket"></i>&nbsp; Productos</span>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <span id="myaccount"><i class="bi bi-person-circle" height="100"
-                                            width="100"></i>&nbsp;
-                                        Mi Cuenta</a></span>
-                                <ul class="dropdown-menu mt-2 border border-light text-left">
-                                    <li><a class="dropdown-item" href="<?php echo $url; ?>/views/site/login.php"><span
-                                                class="text-white" ><i
-                                                    class="bi bi-box-arrow-in-right"></i>&nbsp;
-                                                Iniciar Sesión / Registrarse</a>
-                                    </li>
-                                    <?php if(isset($_SESSION['usuario'])){ ?>
-                                        <li><a class="dropdown-item" href="<?php echo $url; ?>/views/site/utils/cerrarSesion.php"><span
-                                                    class="text-white" ><i
-                                                        class="bi bi-box-arrow-in-right"></i>&nbsp;
-                                                    Cerrar Sesión</a>
+                            <?php if(isset($_SESSION['usuario'])){ ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span id="myaccount"><i class="bi bi-person-check"></i>&nbsp; Bienvenido
+                                        <?= $usuario['nombre'] ?>! </span>
+                                    </a>
+                                    <ul class="dropdown-menu mt-2 border border-light text-left">
+                                        <li>
+                                            <a class="dropdown-item" href="<?php echo $url; ?>/views/site/utils/cerrarSesion.php">
+                                                <span class="text-white"><i class="bi bi-box-arrow-in-right"></i>&nbsp; Cerrar Sesión 
+                                                </span>
+                                            </a>
                                         </li>
-                                    <?php } ?>
-                                    <li><a class="dropdown-item" href="#"><span class="text-white" >&nbsp;<i
-                                                    class="bi bi-box-seam" style="font-size: 13px"></i>&nbsp; Mis
-                                                pedidos</a>
+                                        <li>
+                                            <a class="dropdown-item" href="#">
+                                                <span class="text-white">
+                                                    &nbsp;<i class="bi bi-box-seam" style="font-size: 13px"></i>&nbsp; Mis pedidos
+                                                </span>    
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                        <a class="nav-link active" aria-current="page"
+                                            href="<?php echo $url; ?>/views/site/carrito.php">
+                                            <span id="mycarrito"><i class="bi bi-basket"></i>&nbsp; Mi Carrito</span>
+                                        </a>
                                     </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link active" aria-current="page"
-                                    href="<?php echo $url; ?>/views/site/productos.php">
-                                    <span id="mycarrito"><i class="bi bi-basket"></i>&nbsp; Mi Carrito</span>
-                                </a>
-                            </li>
+                            <?php } else{ ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span id="myaccount"><i class="bi bi-person-circle" height="100" width="100"></i>&nbsp;
+                                        Mi Cuenta</span>
+                                    </a>
+                                    <ul class="dropdown-menu mt-2 border border-light text-left">
+                                        <li>
+                                            <a class="dropdown-item" href="<?php echo $url; ?>/views/site/login.php">
+                                            <span class="text-white"><i class="bi bi-box-arrow-in-right"></i>&nbsp; Iniciar Sesión / Registrarse</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php }?>
                         </ul>
                     </div>
                 </div>

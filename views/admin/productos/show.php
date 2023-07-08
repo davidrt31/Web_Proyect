@@ -10,7 +10,7 @@
     <div class="col-md-12 rounded p-3" style="background: rgba(255,255,255, 0.85);backdrop-filter: blur(5px)">
         <div class="text-center mb-2">
             <h2 class="text-center">Detalles del registro</h2>
-            <img src="/Web_Proyect/assets/images/<?= $date['img_prod']?>" alt="image" width="150" height="150">
+            <img src="/Web_Proyect/assets/images/<?= $date['imagen']?>" alt="image" width="150" height="150">
         </div>
         <div class="pb-3">
             <a href="index.php" class="btn btn-primary">Regresar</a>
@@ -36,12 +36,12 @@
             <tbody>
                 <tr>
                     <td scope="row"><?= $date['id']?></td>
-                    <td scope="row"><?= $date['name_prod']?></td>
-                    <td scope="row"><?= $date['desc_prod']?></td>
-                    <td scope="row"><?= $date['cate_prod']?></td>
-                    <td scope="row"><?= $date['prov_prod']?></td>
-                    <td scope="row"><?= $date['cost_prod']?></td>
-                    <td scope="row"><?= $date['stock_prod']?></td>
+                    <td scope="row"><?= $date['nombre']?></td>
+                    <td scope="row"><?= $date['descripcion']?></td>
+                    <td scope="row"><?= $date['categoria']?></td>
+                    <td scope="row"><?= $date['proveedor']?></td>
+                    <td scope="row"><?= $date['precio']?></td>
+                    <td scope="row"><?= $date['stock']?></td>
                 </tr>
             </tbody>
         </table>
