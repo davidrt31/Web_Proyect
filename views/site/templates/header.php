@@ -131,43 +131,6 @@ $url = "http://" . $url1;
         border-color: #7d3c98;
     }
 
-
-    /*--PROMOCIONES--*/
-    
-
-    .info__ofertas {
-        background: rgb(28, 37, 173);
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        height: 3rem;
-        justify-content: right;
-        text-align: center;
-    }
-
-    .ofertas__promos {
-        background: rgb(28, 37, 173);
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        height: 3rem;
-        justify-content: right;
-        text-align: center;
-    }
-
-    .ofertas__container {
-        background: transparent;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        height: 20rem;
-        overflow: hidden;
-        border-left: 0.5px rgb(28, 37, 173) solid;
-        border-bottom: 0.5px rgb(28, 37, 173) solid;
-        border-right: 0.5px rgb(28, 37, 173) solid;
-    }
-
-    .swiper-slide {
-        z-index: 2;
-    }
-
     #card-categorias {
         background: #7D5BAF;
         height: 200px;

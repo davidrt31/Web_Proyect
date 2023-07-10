@@ -115,26 +115,6 @@
             </a>
         </div>
     </div>
-    <br>
-    <hr>
-    <div class="banner-ofertas-semana mt-5">
-        <div class="info__ofertas text-light ">
-            <h4 class="p-2">SOLO POR ESTA SEMANA</h4>
-        </div>
-        <section class="ofertas__container mySwiper text-center">
-            <div class="swiper-wrapper">
-                <a class="ofertas swiper-slide" href="">
-                    <img src="/Web_Proyect/web/assets/banners/NOT FOUNDED.png" alt="b" width="1116" height="320">
-                </a>
-                <a class="ofertas swiper-slide" href="">
-                    <img src="/Web_Proyect/web/assets/banners/NOT FOUNDED.png" alt="b" width="1116" height="320">
-                </a>
-                <a class="ofertas swiper-slide" href="">
-                    <img src="/Web_Proyect/web/assets/banners/NOT FOUNDED.png" alt="b" width="1116" height="320">
-                </a>
-            </div>
-        </section>
-    </div>
 
 
 
