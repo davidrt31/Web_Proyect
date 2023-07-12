@@ -86,18 +86,23 @@ $url = "http://" . $url1;
         width: 98px;
     }
 
-    <?php if(isset($_SESSION['usuario'])){ ?>
-        #myaccount:hover::before {
+    <?php if(isset($_SESSION['usuario'])) {
+        ?>#myaccount:hover::before {
             width: 90%;
         }
-    <?php } else {?>
-        #myaccount:hover::before {
+
+        <?php
+    }
+
+    else {
+        ?>#myaccount:hover::before {
             width: 108px;
         }
-    <?php }?>
-    
 
-    #mycarrito:hover::before {
+        <?php
+    }
+
+    ?>#mycarrito:hover::before {
         width: 95px;
     }
 
@@ -178,46 +183,62 @@ $url = "http://" . $url1;
                                 </a>
                             </li>
                             <?php if(isset($_SESSION['usuario'])){ ?>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <span id="myaccount"><i class="bi bi-person-check"></i>&nbsp; Bienvenido
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <span id="myaccount"><i class="bi bi-person-check"></i>&nbsp; Bienvenido
                                         <?= $usuario['nombre'] ?>! </span>
-                                    </a>
-                                    <ul class="dropdown-menu mt-2 border border-light text-left">
-                                        <li>
-                                            <a class="dropdown-item" href="<?php echo $url; ?>/views/site/utils/cerrarSesion.php">
-                                                <span class="text-white"><i class="bi bi-box-arrow-in-right"></i>&nbsp; Cerrar Sesión 
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <span class="text-white">
-                                                    &nbsp;<i class="bi bi-box-seam" style="font-size: 13px"></i>&nbsp; Mis pedidos
-                                                </span>    
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                        <a class="nav-link active" aria-current="page"
-                                            href="<?php echo $url; ?>/views/site/carrito.php">
-                                            <span id="mycarrito"><i class="bi bi-basket"></i>&nbsp; Mi Carrito</span>
+                                </a>
+                                <ul class="dropdown-menu mt-2 border border-light text-left">
+                                    <?php if($usuario['nombre']==='admin'){?>
+                                    <li>
+                                        <a class="dropdown-item" href="<?php echo $url; ?>/admin/index.php">
+                                            <span class="text-white">
+                                                <i class="bi bi-house"></i>&nbsp; Administrar web</span>
                                         </a>
                                     </li>
+                                    <?php } else {?>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="text-white">
+                                                &nbsp;<i class="bi bi-box-seam" style="font-size: 13px"></i>&nbsp; Mis
+                                                pedidos
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="<?php echo $url; ?>/views/site/utils/cerrarSesion.php">
+                                            <span class="text-white"><i class="bi bi-box-arrow-in-right"></i>&nbsp;
+                                                Cerrar Sesión
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link active" aria-current="page"
+                                    href="<?php echo $url; ?>/views/site/carrito.php">
+                                    <span id="mycarrito"><i class="bi bi-basket"></i>&nbsp; Mi Carrito</span>
+                                </a>
+                            </li>
                             <?php } else{ ?>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <span id="myaccount"><i class="bi bi-person-circle" height="100" width="100"></i>&nbsp;
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <span id="myaccount"><i class="bi bi-person-circle" height="100"
+                                            width="100"></i>&nbsp;
                                         Mi Cuenta</span>
-                                    </a>
-                                    <ul class="dropdown-menu mt-2 border border-light text-left">
-                                        <li>
-                                            <a class="dropdown-item" href="<?php echo $url; ?>/views/site/login.php">
-                                            <span class="text-white"><i class="bi bi-box-arrow-in-right"></i>&nbsp; Iniciar Sesión / Registrarse</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                </a>
+                                <ul class="dropdown-menu mt-2 border border-light text-left">
+                                    <li>
+                                        <a class="dropdown-item" href="<?php echo $url; ?>/views/site/login.php">
+                                            <span class="text-white"><i class="bi bi-box-arrow-in-right"></i>&nbsp;
+                                                Iniciar Sesión / Registrarse</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <?php }?>
                         </ul>
                     </div>
