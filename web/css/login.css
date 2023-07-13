@@ -128,7 +128,6 @@ input[type="submit"]:hover {
 
 /*ESTILOS DE FORMULARIO REGISTRO*/
 .register__container {
-  display: none;
   text-align: center;
   background: transparent;
   backdrop-filter: blur(8px);
@@ -140,8 +139,6 @@ input[type="submit"]:hover {
   left: 55%;
   top: 18.5%;
   width: 500px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .register__container i {

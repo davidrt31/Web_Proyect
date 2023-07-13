@@ -4,119 +4,30 @@
 
 </div>
 
-<div class="container-fluid" style="margin-top: 4.443rem; width:100%; background: green">
-    <img src="../assets/images/NOT FOUNDED.png" alt="" style="width: 100%; height: 350px">
+<div class="" style="margin-top: 4.443rem; margin-bottom: 1rem;width:100%; background: green">
+    <img src="assets/banners/Banner-Don-Gil.png" alt="" style="width: 100%; height: 350px">
 </div>
-<div class="container-md" style=" margin-bottom: 2.50rem">
-    <h3 class=" text-center mt-5 mb-5">NUESTRAS CATEGORÍAS</h3>
-    <div class="row row-cols-4 row-gap-3">
-        <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=CARNES, AVES Y PESCADOS" type="input"
-                style="text-decoration: none">
-                <div id="card-categorias" class="card rounded">
-                    <div class="img-container text-center" style="margin-top: 16px">
-                        <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
-                            height="100">
+<div class="container-md" style="margin-bottom: 2.50rem">
+    <h3 class="text-center mt-4 mb-4" style="font-weight: bold">NUESTRAS <span class="text-danger">CATEGORÍAS</span></h3>
+    <div class="container">
+        <div class="row row-cols-4 row-gap-3 text-center p-2">
+            <?php $categorias = array('CARNES, AVES Y PESCADOS','CONGELADOS','LÁCTEOS','FRUTAS Y VERDURAS','PANADERÍA Y PASTELERÍA','BEBIDAS','CUIDADO PERSONAL','LIMPIEZA');
+            foreach ($categorias as $categoria){ ?>
+                    <div class="col">
+                        <a href="/Web_Proyect/views/site/productos.php?categoria=<?php echo $categoria?>" type="input" class="btn btn-outline-danger" style="width: 200px; height: 250px">
+                            <div class="container-fluid">
+                                <img src="assets/images/<?php echo $categoria?>.png" style="width: 100%; height: 150px" alt="<?php echo $categoria?>">
+                            </div>
+                            <div class="info-categoria mt-2">
+                                <p style="font-weight: bold; font-size: 24px"><?php echo $categoria?></p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="card-body">
-                        <h4 class="card-subtitle">Carnes, Aves y Pescados</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=CONGELADOS" style="text-decoration: none">
-                <div id="card-categorias" class="card rounded">
-                    <div class="img-container text-center" style="margin-top: 16px">
-                        <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
-                            height="100">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-subtitle">Congelados</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=LÁCTEOS" style="text-decoration: none">
-                <div id="card-categorias" class="card rounded">
-                    <div class="img-container text-center" style="margin-top: 16px">
-                        <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
-                            height="100">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-subtitle">Lácteos</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=FRUTAS Y VERDURAS" style="text-decoration: none">
-                <div id="card-categorias" class="card rounded">
-                    <div class="img-container text-center" style="margin-top: 16px">
-                        <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
-                            height="100">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-subtitle">Frutas y Verduras</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=PANADERÍA Y PASTELERÍA"
-                style="text-decoration: none">
-                <div id="card-categorias" class="card rounded">
-                    <div class="img-container text-center" style="margin-top: 16px">
-                        <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
-                            height="100">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-subtitle">Panadería y Pastería</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=BEBIDAS" style="text-decoration: none">
-                <div id="card-categorias" class="card rounded">
-                    <div class="img-container text-center" style="margin-top: 16px">
-                        <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
-                            height="100">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-subtitle">Bebidas</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=CUIDADO PERSONAL" style="text-decoration: none">
-                <div id="card-categorias" class="card rounded">
-                    <div class="img-container text-center" style="margin-top: 16px">
-                        <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
-                            height="100">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-subtitle">Cuidado Personal</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="/Web_Proyect/views/site/productos.php?categoria=LIMPIEZA" style="text-decoration: none">
-                <div id="card-categorias" class="card rounded">
-                    <div class="img-container text-center" style="margin-top: 16px">
-                        <img src="/Web_Proyect/web/assets/images/NOT FOUNDED.png" alt="Card image cap" width="100"
-                            height="100">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-subtitle">Limpieza</h4>
-                    </div>
-                </div>
-            </a>
+                
+            <?php } ?>
         </div>
     </div>
+</div>
 
 
 

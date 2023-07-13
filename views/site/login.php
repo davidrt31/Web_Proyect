@@ -1,7 +1,7 @@
 <?php include '/xampp/htdocs/Web_Proyect/views/site/templates/header.php' ?>
 
 </div>
-<link rel="stylesheet" href="/Web_Proyect/web/css/login.css">
+<link rel="stylesheet" href="../../web/css/login.css">
 
 <div id="cont-login" >
     <!--FORMULARIO (INICIO DE SESIÓN)-->
@@ -65,5 +65,13 @@
     </div>
 </div>
 
-<script src="/Web_Proyect/web/js/login.js"></script>
-<?php require_once('templates/footer.php') ?>
+<style>
+    #cont-login{
+        height: 10vh
+    }
+
+    footer{
+        margin-top: 96.2vh;
+    }
+</style>
+<?php require_once('/xampp/htdocs/Web_Proyect/views/site/templates/footer.php') ?>

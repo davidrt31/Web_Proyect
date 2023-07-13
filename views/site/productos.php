@@ -38,7 +38,7 @@
 
 
 
-<div class="container-fluid" style="margin-top: 6.5rem">
+<div class="container-fluid mb-3" style="margin-top: 6.5rem">
 
     <div class="row row-cols-5 row-gap-3 p-5" style="margin-bottom: -22px">
         <?php 
@@ -82,28 +82,8 @@
             <h2>No hay elementos para mostrar de la categoría "<?php echo $_POST['txtCateProd']?>"</h2>
         </div>
         <?php } ?>
-        <style>
-        #descripcion {
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        </style>
-        <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            var p1 = document.getElementById('descripcion');
+    </div>
+</div>
+<br>
 
-            limitarAltura(p1, 30); // Establece una altura máxima de 100px para el primer párrafo
-        });
-
-        function limitarAltura(elemento, alturaMaxima) {
-            var alturaActual = elemento.clientHeight;
-
-            if (alturaActual > alturaMaxima) {
-                while (elemento.clientHeight > alturaMaxima) {
-                    elemento.textContent = elemento.textContent.replace(/\W*\s(\S)*$/, '...');
-                }
-            }
-        }
-        </script>
-
-        <?php require_once('templates/footer.php')?>
+<?php require_once('templates/footer.php')?>
