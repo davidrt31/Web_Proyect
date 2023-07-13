@@ -9,4 +9,4 @@ Cambios hechos:
 - Actualización de Base de datos (Tabla de Boletas).
 - Función carrito completa (Agregar productos, crear boletas al darle el botón Comprar)
 - Creación de vista en admin del apartado Boletas (No son editables, solo visuales)
-- Nada más creo （￣︶￣）↗　
+- Nada más creo （￣︶￣）↗
