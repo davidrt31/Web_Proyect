@@ -1,12 +1,12 @@
 <?php
+    include '/xampp/htdocs/Web_Proyect/controllers/usuariosController.php';
 
-    $txtNames = $_POST['txtNames'];
-    $txtLastNames = $_POST['txtLastNames'];
-    $txtEmail = $_POST['txtEmail'];
-    $txtPassword = $_POST['txtPassword'];
-
-    require_once('../../../controllers/usuariosController.php');
     $obj = new usuariosController();
-    $obj->guardar($txtNames, $txtLastNames, $txtEmail, $txtPassword);
-
+    $obj->insertar(
+        $_POST['nombre'],
+        $_POST['apelliP'],
+        $_POST['apelliM'],
+        $_POST['correo'],
+        $_POST['password']
+    );
 ?>

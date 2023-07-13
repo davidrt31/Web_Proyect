@@ -1,5 +1,4 @@
-<?php require_once('templates/header.php')
-?>
+<?php include '/xampp/htdocs/Web_Proyect/views/site/templates/header.php' ?>
 
 </div>
 <link rel="stylesheet" href="/Web_Proyect/web/css/login.css">

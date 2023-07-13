@@ -6,24 +6,33 @@
             <form class="p-4" action="store.php" method="POST" autocomplete="off">
                 <div class="infoUser" style="display: grid; grid-template-columns: 50% 50%;">
                     <div class="mb-3 me-2">
-                        <label for="txtNames" class="form-label">Nombres:</label>
-                        <input type="text" name="txtNames" required class="form-control border-secondary-subtle" id="txtNames">
+                        <label for="txtNames" class="form-label">Nombres</label>
+                        <input type="text" name="nombre" required class="form-control border-secondary-subtle" id="txtNames">
                     </div>
                     <div class="mb-3 ms-2">
-                        <label for="txtLastNames" class="form-label">Apellidos:</label>
-                        <input type="text" name="txtLastNames" required class="form-control border-secondary-subtle" id="txtLastNames">
+                        <label for="txtLastNames" class="form-label">Apellido Paterno</label>
+                        <input type="text" name="apelliP" required class="form-control border-secondary-subtle" id="txtLastNames">
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="txtLastNames" class="form-label">Apellidos Materno</label>
+                        <input type="text" name="apelliM" required class="form-control border-secondary-subtle" id="txtLastNames">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="txtEmail" class="form-label">Correo:</label>
-                    <input type="email" name="txtEmail" required class="form-control border-secondary-subtle" id="txtEmail">
+                    <input type="email" name="correo" required class="form-control border-secondary-subtle" id="txtEmail">
                 </div>
                 <div class="mb-3">
                     <label for="txtPassword" class="form-label">Contraseña:</label>
-                    <input type="password" name="txtPassword" required class="form-control border-secondary-subtle" id="txtPassword">
+                    <input type="password" name="password" required class="form-control border-secondary-subtle" id="txtPassword">
                 </div>
                 <button type="submit" class="btn btn-primary mt-1">Guardar</button>
-                <button type="submit" class="btn btn-danger mt-1">Cancelar</button>
+                <a href="index.php" class="btn btn-secondary mt-1">Cancelar</a>
+                <?php
+                    if(isset($_GET['email']) && $_GET['email'] == "Invalid"){
+                        echo ('<div style="color: white; background-color:red; border-radius:10px; margin:10px; text-align:center">El correo ingresado ya está Registrado!</div>');
+                    }
+                ?>
             </form>
         </div>
     </div>

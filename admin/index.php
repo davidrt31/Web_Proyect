@@ -9,25 +9,25 @@
     <div class="col p-3 text-bg-dark" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem;">
         <h5>Administrar Usuarios</h5>
         <hr>
-        <small class="text-justify">Apartado para la visualización o modificación de los usuarios registrados en la
-            Tienda</small>
+        <small class="text-justify">Apartado para la visualización o modificación de los usuarios registrados en la Tienda</small>
+        <br>
         <a href="<?php echo $url; ?>/views/admin/usuarios/index.php" class="btn btn-primary mt-3">Revisar Tabla de Usuarios</a> <br>
         <a href="<?php echo $url; ?>/views/admin/usuarios/create.php" class="btn btn-success m-3">Agregar nuevo usuario</a>
     </div>
     <div class="col p-3 text-light" style="background: rgb(118, 36, 196)">
         <h5>Administrar Productos</h5>
         <hr>
-        <small class="text-justify">Apartado para la visualización o modificación de los productos en la Base de
-            Datos</small>
+        <small class="text-justify">Apartado para la visualización o modificación de los productos en la Base de Datos</small>
+        <br>
         <a href="<?php echo $url; ?>/views/admin/productos/index.php" class="btn btn-primary mt-3">Revisar Tabla de Productos</a> <br>
         <a href="<?php echo $url; ?>/views/admin/productos/create.php" class="btn btn-success m-3">Agregar nuevo Producto</a>
     </div>
     <div class="col text-bg-danger p-3" style="border-top-right-radius: 1rem; border-bottom-right-radius: 1rem;">
-        <h5>Administrar Tickets</h5>
+        <h5>Administrar Boletas</h5>
         <hr>
-        <small class="text-justify">Apartado para la visualización o modificación de los tickets generados por los
-            usuarios al comprar</small>
-        <a href="<?php echo $url; ?>/views/admin/tickets/index.php" class="btn btn-primary" style="margin-top: 2.70rem; margin-bottom: 2.70rem">Revisar Tabla de Tickets</a>
+        <small class="text-justify">Apartado para la visualización de las boletas generadas por los usuarios al comprar</small>
+        <br>
+        <a href="<?php echo $url; ?>/views/admin/boletas/index.php" class="btn btn-primary" style="margin-top: 2.70rem; margin-bottom: 2.70rem">Revisar Tabla de Boletas</a>
     </div>
 </div>
 

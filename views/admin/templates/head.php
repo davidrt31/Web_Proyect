@@ -84,11 +84,11 @@ $url = "http://" . $url1;
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <i class="bi bi-ticket"></i>&nbsp; Tickets
+                            <i class="bi bi-ticket"></i>&nbsp; Boletas
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item"
-                                    href="<?php echo $url; ?>/views/admin/tickets/index.php">Visualizar Tickets</a>
+                                    href="<?php echo $url; ?>/views/admin/boletas/index.php">Visualizar Boletas</a>
                             </li>
                         </ul>
                     </li>

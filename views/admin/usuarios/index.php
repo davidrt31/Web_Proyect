@@ -4,7 +4,7 @@
     require_once('/xampp/htdocs/Web_Proyect/controllers/usuariosController.php');
 
     $obj = new usuariosController();
-    $rows = $obj->index();
+    $rows = $obj->getAllUsers();
 ?>
 
 <div class="row">
@@ -18,10 +18,8 @@
             <thead class="table-warning">
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nombres</th>
-                    <th scope="col">Apellidos</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">Contraseña</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -30,10 +28,8 @@
                     <?php foreach ($rows as $row): ?>
                         <tr>
                             <td scope="row"><?= $row['id']?></td>
-                            <td scope="row"><?= $row['names']?></td>
-                            <td scope="row"><?= $row['lastnames']?></td>
-                            <td scope="row"><?= $row['email']?></td>
-                            <td scope="row"><?= $row['pass']?></td>
+                            <td scope="row"><?= $row['nombre']?></td>
+                            <td scope="row"><?= $row['correo']?></td>
                             <td scope="row">
                                 <a href="show.php?id=<?= $row['id']?>" class="btn btn-success" style="margin-top: -3px; margin-bottom: -3px">Detalles</a>
                             </td>

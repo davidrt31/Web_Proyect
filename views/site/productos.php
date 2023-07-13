@@ -1,13 +1,15 @@
-<?php 
-    require_once('templates/header.php');
-    require_once('/xampp/htdocs/Web_Proyect/controllers/productosController.php');
+<?php include '/xampp/htdocs/Web_Proyect/controllers/productosController.php' ?>
+<?php session_start() ?>
+<?php include '/xampp/htdocs/Web_Proyect/views/site/templates/header.php' ?>
 
+<?php 
+    
     $obj = new productosController();
 
     if(isset($_GET['categoria'])){
         $ListaProductos = $obj->getProductsByCategory($_GET['categoria']);
     } else{
-        $ListaProductos = $obj->indexProduct();
+        $ListaProductos = $obj->getAllProducts();
     }
 ?>
 
@@ -59,25 +61,18 @@
                     <p class="card-text" id="descripcion" style="font-size: 14px"><?php echo $producto['descripcion']?>
                     </p>
                     <p class="" style="color: red;font-weight: bold; margin-top: -8px">
-                        S/.<?php echo $producto['precio']?> x Kg</p>
+                        S/<?php echo $producto['precio']?> x Kg</p>
                 </div>
                 <div class="row">
-                    <div class="col-4">
-                        <select class="ms-4" style="width: 40px" name="cant-select-prod" id="cant-select-prod">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                    <div class="btn-container col-7" style="text-align: center ; justify-content: center; height: 50px">
-                        <a id="btnAgregar" href="#">Agregar</a>
+                    <div class="btn-container " style="text-align: center ; justify-content: center; height: 50px">
+                        <?php 
+                            if(isset($_SESSION['usuario'])){
+                                $rutaAgregar = "utils/agregarProducto.php?id=" . $producto['id'];
+                            } else{
+                                $rutaAgregar = "login.php";
+                            }
+                        ?>
+                        <a id="btnAgregar" href="<?= $rutaAgregar ?>">Agregar</a>
                     </div>
                 </div>
             </div>

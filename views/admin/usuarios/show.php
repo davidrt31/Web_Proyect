@@ -3,7 +3,7 @@
     require_once('../../../controllers/usuariosController.php');
     $obj = new usuariosController();
     
-    $date = $obj->show($_GET['id']);
+    $row = $obj->getUser($_GET['id']);
 ?>
 
 <div class="row">
@@ -11,7 +11,7 @@
         <h2 class="text-center">Detalles del registro</h2>
         <div class="pb-3">
             <a href="index.php" class="btn btn-primary">Regresar</a>
-            <a href="edit.php?id=<?= $date[0];?>" class="btn btn-success">Actualizar</a>
+            <a href="edit.php?id=<?= $row[0];?>" class="btn btn-success">Actualizar</a>
             <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Eliminar
             </a>
@@ -23,19 +23,21 @@
             <thead class="table-warning">
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nombres</th>
-                    <th scope="col">Apellidos</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
                     <th scope="col">Correo</th>
                     <th scope="col">Contraseña</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td scope="row"><?= $date['id']?></td>
-                    <td scope="row"><?= $date['names']?></td>
-                    <td scope="row"><?= $date['lastnames']?></td>
-                    <td scope="row"><?= $date['email']?></td>
-                    <td scope="row"><?= $date['pass']?></td>
+                    <td scope="row"><?= $row['id']?></td>
+                    <td scope="row"><?= $row['nombre']?></td>
+                    <td scope="row"><?= $row['apellido_paterno']?></td>
+                    <td scope="row"><?= $row['apellido_materno']?></td>
+                    <td scope="row"><?= $row['correo']?></td>
+                    <td scope="row"><?= $row['password']?></td>
                 </tr>
             </tbody>
         </table>
@@ -55,7 +57,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <a href="delete.php?id=<?= $date[0]?>" class="btn btn-danger">Eliminar</a>
+                    <a href="delete.php?id=<?= $row[0]?>" class="btn btn-danger">Eliminar</a>
                 </div>
             </div>
         </div>

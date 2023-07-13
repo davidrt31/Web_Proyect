@@ -26,14 +26,14 @@
                             <label for="txtCateProd" class="form-label">Categoría del Producto:</label>
                             <select class="form-select" aria-label="Default select example" id="txtCateProd"
                                 name="txtCateProd">
-                                <option selected value="Carnes, aves y pescados">Carnes, aves y pescados</option>
-                                <option value="Congelados">Congelados</option>
-                                <option value="Bebidas">Bebidas</option>
-                                <option value="Cuidado Personal">Cuidado Personal</option>
-                                <option value="Frutas y Verduras">Frutas y Verduras</option>
-                                <option value="Lácteos">Lácteos</option>
-                                <option value="Limpieza">Limpieza</option>
-                                <option value="Panadería y Pastelería">Panadería y Pastelería</option>
+                                <option selected value="CARNES, AVES Y PESCADOS">CARNES, AVES Y PESCADOS</option>
+                                <option value="CONGELADOS">CONGELADOS</option>
+                                <option value="BEBIDAS">BEBIDAS</option>
+                                <option value="CUIDADO PERSONAL">CUIDADO PERSONAL</option>
+                                <option value="FRUTAS Y VERDURAS">FRUTAS Y VERDURAS</option>
+                                <option value="LACTEOS">LACTEOS</option>
+                                <option value="LIMPIEZA">LIMPIEZA</option>
+                                <option value="PANADERIA Y PASTELERIA">PANADERIA Y PASTELERIA</option>
                             </select>
                         </div>
                     </div>
@@ -46,16 +46,16 @@
                         <div class="mb-3 ms-4">
                             <label for="txtCostProd" class="form-label">Precio del Producto:</label>
                             <input type="text" name="txtCostProd" required class="form-control border-secondary-subtle"
-                                id="txtCostProd">
+                                pattern="[0-9]+(\.[0-9]+)?" id="txtCostProd">
                         </div>
                         <div class="ms-4 mb-3">
                             <label for="txtCantProd" class="form-label">Stock:</label>
                             <input type="number" name="txtCantProd" required class="form-control border-secondary-subtle"
-                                id="txtCantProd">
+                                min="0" max="100" id="txtCantProd">
                         </div>
                         <div class="ms-4" style="margin-top: 44px;">
                             <button type="submit" class="btn btn-primary mt-1">Guardar</button>
-                            <button type="submit" class="btn btn-danger mt-1">Cancelar</button>
+                            <a href="index.php" class="btn btn-secondary mt-1">Cancelar</a>
                         </div>
                     </div>
                 </div>

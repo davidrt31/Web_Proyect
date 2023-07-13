@@ -4,7 +4,7 @@
     require_once('/xampp/htdocs/Web_Proyect/controllers/productosController.php');
 
     $obj = new productosController();
-    $rows = $obj->indexProduct();
+    $rows = $obj->getAllProducts();
 ?>
 
 <div class="row">
@@ -40,7 +40,7 @@
                             <td scope="row"><?= $row['categoria']?></td>
                             <td scope="row"><?= $row['descripcion']?></td>
                             <td scope="row"><?= $row['proveedor']?></td>
-                            <td scope="row ">S/.<?= $row['precio']?></td>
+                            <td scope="row ">S/<?= $row['precio']?></td>
                             <td scope="row">&nbsp;&nbsp;&nbsp;&nbsp; <?= $row['stock']?></td>
                             <td scope="row">
                                 <a href="show.php?id=<?= $row['id']?>" class="btn btn-success" style="margin-top: -3px; margin-bottom: -3px">Detalles</a>

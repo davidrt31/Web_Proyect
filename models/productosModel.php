@@ -1,118 +1,70 @@
-<?php 
-    
-    require_once('/xampp/htdocs/Web_Proyect/config/db.php');
+<?php
+    require_once '/xampp/htdocs/Web_Proyect/config/db.php';
 
     class productosModel{
         private $PDO;
-
-        public function __construct()
-        {
+        public function __construct(){
             $con = new db();
-            $this-> PDO = $con -> conexion();
+            $this->PDO = $con->conexion();
         }
+        public function insertar($nombre,$categoria,$imagen,$descripcion,$proveedor,$precio,$stock){
+            $statement = $this->PDO->prepare(
+                "INSERT INTO productos VALUES(null,:nombre,:categoria,
+                :imagen,:descripcion,:proveedor,:precio,:stock)");
 
-        public function insertProduct($nombre, $txtImgProd, $descripcion, $categoria, $proveedor, $costo, $stock)
-        {
-            $stament = $this->PDO->prepare('INSERT INTO productos (name_prod, img_prod, cate_prod, desc_prod, prov_prod, cost_prod, stock_prod) VALUES (:name_prod, :img_prod, :cate_prod, :desc_prod, :prov_prod, :cost_prod, :stock_prod)');
-            $stament->bindParam(':name_prod', $nombre);
-
-            //TODO: Código para el ingreso de una imagen
-            $txtImgProd=(isset($_FILES['txtImgProd']['name']))?$_FILES['txtImgProd']['name']:"";
-            $fecha= new DateTime();
-            $nombreArchivo=($txtImgProd!="")?$fecha->getTimestamp()."_".$_FILES["txtImgProd"]["name"]:"NOT FOUNDED.png";
-            $tmpImagen=$_FILES["txtImgProd"]["tmp_name"];
-            
-            if($tmpImagen!=""){
-                move_uploaded_file($tmpImagen,"/xampp/htdocs/Web_Proyect/assets/images/".$nombreArchivo);
-            }
-
-            $stament->bindParam(':img_prod', $nombreArchivo);
-            $stament->bindParam(':cate_prod', $categoria);
-            $stament->bindParam(':desc_prod', $descripcion);
-            $stament->bindParam(':prov_prod', $proveedor);
-            $stament->bindParam(':cost_prod', $costo);
-            $stament->bindParam(':stock_prod', $stock);
-            return ($stament->execute()) ? $this->PDO->lastInsertId() : false;
+            $statement->bindParam(":nombre",$nombre);
+            $statement->bindParam(":categoria",$categoria);
+            $statement->bindParam(":imagen",$imagen);
+            $statement->bindParam(":descripcion",$descripcion);
+            $statement->bindParam(":proveedor",$proveedor);
+            $statement->bindParam(":precio",$precio);
+            $statement->bindParam(":stock",$stock);
+            return ($statement->execute()) ? $this->PDO->lastInsertId() : false;
         }
-
-        public function showProduct($id)
-        {
-            $stament = $this->PDO->prepare('SELECT * FROM productos where id = :id limit 1');
-            $stament->bindParam(':id', $id);
-            return ($stament->execute()) ? $stament->fetch() : false ;
+        public function getAllProducts(){
+            $statement = $this->PDO->prepare("SELECT * FROM productos");
+            return ($statement->execute()) ? $statement->fetchAll() : false;
         }
-
-        public function indexProduct()
-        {
-            $stament = $this->PDO->prepare('SELECT * FROM productos');
-            return ($stament->execute()) ? $stament->fetchAll() : false;
+        public function getProduct($id){
+            $statement = $this->PDO->prepare("SELECT * FROM productos WHERE id = :id LIMIT 1");
+            $statement->bindParam(":id",$id);
+            return ($statement->execute()) ? $statement->fetch() : false;
         }
-
-        public function updateProduct($id, $nombre, $txtImgProd, $descripcion, $categoria, $proveedor, $costo, $stock)
-        {
-            $stament = $this->PDO->prepare('UPDATE productos SET name_prod = :name_prod, cate_prod = :cate_prod, desc_prod = :desc_prod, prov_prod = :prov_prod, cost_prod = :cost_prod, stock_prod = :stock_prod WHERE id = :id');
-            $stament->bindParam(':id', $id);
-            $stament->bindParam(':name_prod', $nombre);
-            $stament->bindParam(':cate_prod', $categoria);
-            $stament->bindParam(':desc_prod', $descripcion);
-            $stament->bindParam(':prov_prod', $proveedor);
-            $stament->bindParam(':cost_prod', $costo);
-            $stament->bindParam(':stock_prod', $stock);
-            
-            
-            $txtImgProd=(isset($_FILES['txtImgProd']['name']))?$_FILES['txtImgProd']['name']:"";
-            
-            if($txtImgProd!=""){
-
-                $fecha = new DateTime();
-                $nombreArchivo=($txtImgProd!="")?$fecha->getTimestamp()."_".$_FILES['txtImgProd']['name']:"NOT FOUNDED.png";
-
-                $tmpImagen=$_FILES["txtImgProd"]["tmp_name"];
-                move_uploaded_file($tmpImagen,"/xampp/htdocs/Web_Proyect/assets/images/".$nombreArchivo);
-
-                $statement= $this->PDO->prepare("SELECT img_prod FROM productos WHERE id=:id");
-                $statement->bindParam(':id',$id);
-                $statement->execute();
-                $Producto=$statement->fetch(PDO::FETCH_LAZY);
-
-                if(isset($Producto['img_prod']) && ($Producto['img_prod']!='NOT FOUNDED.png')){
-                    if(file_exists("/xampp/htdocs/Web_Proyect/assets/images/".$Producto['img_prod'])){
-                        unlink("/xampp/htdocs/Web_Proyect/assets/images/".$Producto['img_prod']);
-                    }
-                }
-                $statement=$this->PDO->prepare("UPDATE productos SET img_prod=:img_prod WHERE id=:id");
-                $statement->bindParam(':id',$id);
-                $statement->bindParam(':img_prod',$nombreArchivo);
-                $statement->execute();
-            }
-
-
-            return ($stament->execute()) ? $id : false;
-        }
-
-        public function deleteProduct($id)
-        {
-            $stament=$this->PDO->prepare("SELECT imagen FROM productos WHERE id=:id");
-            $stament->bindParam(':id',$id);
-            $stament->execute();
-            $Producto=$stament->fetch(PDO::FETCH_LAZY);
-
-            if(isset($Producto["img_prod"])&&($Producto["img_prod"]!="NOT FOUNDED.png")){
-                if(file_exists("/xampp/htdocs/Web_Proyect/assets/images/".$Producto["img_prod"])){
-                    unlink("/xampp/htdocs/Web_Proyect/assets/images/".$Producto["img_prod"]);
-                }
-            }
-
-            $stament = $this->PDO->prepare('DELETE FROM productos WHERE id = :id');
-            $stament->bindParam(':id',$id);
-            return ($stament->execute()) ? true : false;
-        }
-
-        public function getProductsbyCategory($categoria)
-        {
+        public function getProductsByCategory($categoria){
             $statement = $this->PDO->prepare("SELECT * FROM productos WHERE categoria = :categoria");
             $statement->bindParam(":categoria",$categoria);
             return ($statement->execute()) ? $statement->fetchAll() : false;
+        }
+        public function update($id,$nombre,$categoria,$imagen,$descripcion,$proveedor,$precio,$stock){
+            $statement = $this->PDO->prepare(
+                "UPDATE productos SET nombre = :nombre, categoria = :categoria,
+                imagen = :imagen, descripcion = :descripcion, proveedor = :proveedor,
+                precio = :precio, stock = :stock WHERE id = :id");
+
+            $statement->bindParam(":id",$id);
+            $statement->bindParam(":nombre",$nombre);
+            $statement->bindParam(":categoria",$categoria);
+            $statement->bindParam(":imagen",$imagen);
+            $statement->bindParam(":descripcion",$descripcion);
+            $statement->bindParam(":proveedor",$proveedor);
+            $statement->bindParam(":precio",$precio);
+            $statement->bindParam(":stock",$stock);
+            return ($statement->execute()) ? $id : false;
+        }
+
+        //UPDATE productos SET stock = stock - 1 WHERE id = 1;
+
+        public function disminuirStock($id,$cantidad){
+            $statement = $this->PDO->prepare("UPDATE productos SET stock = stock - :cantidad WHERE id = :id");
+            $statement->bindParam(":id",$id);
+            $statement->bindParam(":cantidad",$cantidad);
+            return ($statement->execute()) ? true : false;
+        }
+
+        public function delete($id){
+            $statement = $this->PDO->prepare("DELETE FROM productos WHERE id = :id");
+            $statement->bindParam(":id",$id);
+            return ($statement->execute()) ? true : false;
         }
     }
 ?>

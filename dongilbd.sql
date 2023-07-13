@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2023 at 09:02 PM
+-- Generation Time: Jul 12, 2023 at 11:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,20 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Table structure for table `boletas`
 --
 
-CREATE TABLE `admins` (
-  `correo` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+CREATE TABLE `boletas` (
+  `id_boleta` int(11) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `usuario` varchar(100) NOT NULL,
+  `productos` varchar(10000) NOT NULL,
+  `pago_total` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `admins`
+-- Dumping data for table `boletas`
 --
 
-INSERT INTO `admins` (`correo`, `password`) VALUES
-('admin@gmail.com', 'admin12345');
+INSERT INTO `boletas` (`id_boleta`, `fecha`, `usuario`, `productos`, `pago_total`) VALUES
+(1, '2023-07-12 13:03:50', 'afernandez@gmail.com', 'Carne de Ternera 13.90 x 1, Agua San Mateo 2.5L 3.00 x 1, Alfajor x Und. 2.50 x 2', 21.90),
+(2, '2023-07-12 15:53:59', 'afernandez@gmail.com', 'Carne de Ternera S/13.90 x 1, Agua San Mateo 2.5L S/3.00 x 1, Alfajor x Und. S/2.50 x 2, ', 21.90),
+(3, '2023-07-12 15:58:13', 'afernandez@gmail.com', 'Crema de leche S/8.90 x 2, Guiso de Cerdo x Kg. S/26.90 x 3, Queso fresco S/34.50 x 1, ', 133.00),
+(4, '2023-07-12 16:04:09', 'jzapata@gmail.com', 'Flan 150gr. S/5.00 x 1, Gaseosa incakola 355ml. S/3.50 x 2, Fresas x Kg. S/10.00 x 1, Jabon Protex Pack x3 S/11.40 x 1, ', 33.40);
 
 -- --------------------------------------------------------
 
@@ -61,11 +67,11 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `categoria`, `imagen`, `descripcion`, `proveedor`, `precio`, `stock`) VALUES
-(1, 'Carne de Ternera', 'CARNES, AVES Y PESCADOS', '1686974431_bisteck.png', 'Bisteck de Tapa x Kg', 'San Fernando', 13.00, 14),
-(3, 'Crema de leche', 'LACTEOS', '1686974481_crema_de_leche.png', 'Esto es una Crema', 'Gloria', 8.90, 18),
-(4, 'Agua San Mateo 2.5L', 'BEBIDAS', '1686974333_agua_sanmateo.jpg', 'Agua San Mateo de Manantial', 'San Mateo', 3.00, 24),
-(5, 'Guiso de Cerdo x Kg.', 'CARNES, AVES Y PESCADOS', '1686973848_cerdo.png', 'Esto es un chanchito', 'San Fernando', 26.90, 18),
-(12, 'Queso fresco', 'LACTEOS', '1686979760_queso_fresco.png', 'Queso fresco de 150 gramos', 'Bonle', 34.50, 9),
+(1, 'Carne de Ternera', 'CARNES, AVES Y PESCADOS', '1686974431_bisteck.png', 'Bisteck de Tapa x Kg', 'San Fernando', 13.90, 30),
+(3, 'Crema de leche', 'LACTEOS', '1686974481_crema_de_leche.png', 'Esto es una Crema', 'Gloria', 8.90, 8),
+(4, 'Agua San Mateo 2.5L', 'BEBIDAS', '1686974333_agua_sanmateo.jpg', 'Agua San Mateo de Manantial', 'San Mateo', 3.00, 15),
+(5, 'Guiso de Cerdo x Kg.', 'CARNES, AVES Y PESCADOS', '1686973848_cerdo.png', 'Esto es un chanchito', 'San Fernando', 26.90, 15),
+(12, 'Queso fresco', 'LACTEOS', '1686979760_queso_fresco.png', 'Queso fresco de 150 gramos', 'Bonle', 34.50, 8),
 (14, 'Leche evaporada', 'LACTEOS', '1686979760_leche_evaporada.png', 'Leche evaporada en lata de 400 gramos', 'Gloria', 4.20, 15),
 (22, 'Manjarblanco', 'LACTEOS', '1686979760_Manjarblanco.png', 'Manjar blanco de 250 gramos en envase de plastico ', 'Bonle', 6.10, 14),
 (23, 'Leche condensada', 'LACTEOS', '1686979760_leche_condensada.png', 'Leche condensada 390 gramos en lata', 'Nestle', 6.25, 11),
@@ -101,7 +107,7 @@ INSERT INTO `productos` (`id`, `nombre`, `categoria`, `imagen`, `descripcion`, `
 (78, 'Mandarina sin pepa x Kg.', 'FRUTAS Y VERDURAS', '1686979761_mandarina_sin_pepa.jpg', 'mandarina sin pepa clementina', 'Pronasel', 4.00, 17),
 (80, 'Mango papaya x Kg.', 'FRUTAS Y VERDURAS', '1686979761_mango_papaya.jpg', 'Mango papaya amarillo verdoso dulce', 'Pronasel', 4.00, 9),
 (82, 'Papaya x Kg', 'FRUTAS Y VERDURAS', '1686979761_papaya.jpg', 'Papaya criolla maduro dulce', 'Pronasel', 4.50, 16),
-(84, 'Fresas x Kg.', 'FRUTAS Y VERDURAS', '1686979761_fresas.jpg', 'Fresa chandler grandes frescas', 'Sierralta', 10.00, 14),
+(84, 'Fresas x Kg.', 'FRUTAS Y VERDURAS', '1686979761_fresas.jpg', 'Fresa chandler grandes frescas', 'Sierralta', 10.00, 13),
 (86, 'Maracuyá x Kg.', 'FRUTAS Y VERDURAS', '1686979761_maracuya.jpg', 'Maracuya amarilla fresca', 'Sierralta', 4.50, 16),
 (88, 'Carambolas x Kg.', 'FRUTAS Y VERDURAS', '1686979761_carambola.jpg', 'Carambola acida amarilla', 'Sierralta', 3.50, 11),
 (90, 'Papa amarilla x Kg.', 'FRUTAS Y VERDURAS', '1686979761_papa_amarilla.jpg', 'Papa amarilla tamaño mediano', 'Sierralta', 4.50, 13),
@@ -119,7 +125,7 @@ INSERT INTO `productos` (`id`, `nombre`, `categoria`, `imagen`, `descripcion`, `
 (108, 'Palta Fuerte x Kg.', 'FRUTAS Y VERDURAS', '1686979761_palta_fuerte.jpg', 'Palta fuerte madura ', 'Sierralta', 8.00, 13),
 (110, 'Lúcuma x Kg.', 'FRUTAS Y VERDURAS', '1686979761_lucuma.jpg', 'Lucuma seda dulce fresca', 'Pronasel', 8.00, 19),
 (111, 'Pan francés x Kg', 'PANADERIA Y PASTELERIA', '1686979761_pan_frances.jpg', 'Pan frances grande recien horneados', 'Repaspan', 6.50, 16),
-(112, 'Flan 150gr.', 'PANADERIA Y PASTELERIA', '1686979761_flan.jpg', 'Rebanada de flan de vainilla de 150 gramos', 'Repaspan', 5.00, 15),
+(112, 'Flan 150gr.', 'PANADERIA Y PASTELERIA', '1686979761_flan.jpg', 'Rebanada de flan de vainilla de 150 gramos', 'Repaspan', 5.00, 14),
 (114, 'Alfajor x Und.', 'PANADERIA Y PASTELERIA', '1686979761_alfajor.jpg', 'Alfajores artesanales rellenos de manjar blanco', 'Repaspan', 2.50, 16),
 (115, 'Pan de yema x Kg.', 'PANADERIA Y PASTELERIA', '1686979761_pan_de_yema.jpg', 'Pan de yema recien horneados con semillas de ajonjoli', 'Repaspan', 8.50, 12),
 (116, 'Caramandunga x 12 Und.', 'PANADERIA Y PASTELERIA', '1686979761_caramandunga.jpg', 'Panes caramandunga frescos ', 'Repaspan', 12.50, 14),
@@ -136,7 +142,7 @@ INSERT INTO `productos` (`id`, `nombre`, `categoria`, `imagen`, `descripcion`, `
 (138, 'Emoliente Naturale 1Lt.', 'BEBIDAS', '1686979761_emoliente1L_naturale.jpg', 'Emoliente clasico en botella 1 litro', 'Naturale', 4.00, 10),
 (139, 'Frugos Watts de pera 1Lt.', 'BEBIDAS', '1686979761_Frugos1L_WattsPera.jpg', 'Frugos Watts sabor pera 1 Litro', 'Watts', 5.00, 13),
 (141, 'Gaseosa Incakola 500ml.', 'BEBIDAS', '1686979761_gaseosa500ml_incakola.jpg', 'Gaseosa Incakola sabor original en botella 500ml', 'Inca kola', 4.00, 10),
-(143, 'Gaseosa incakola 355ml.', 'BEBIDAS', '1686979761_gaseosalata355ml_incakola.jpg', 'Gaseosa inca kola en lata 355ml', 'Inca kola', 3.50, 10),
+(143, 'Gaseosa incakola 355ml.', 'BEBIDAS', '1686979761_gaseosalata355ml_incakola.jpg', 'Gaseosa inca kola en lata 355ml', 'Inca kola', 3.50, 8),
 (148, 'Gatorade mandarina 500ml.', 'BEBIDAS', '1686979761_gatorade500ml.jpg', 'Bebida energética gatorade sabor mandarina 500ml', 'Gatorade', 3.50, 11),
 (150, 'Manzanilla CajaX20unds Bells', 'BEBIDAS', '1686979761_manzanilla20undx20gr_bells.jpg', 'Te de manzanilla filtrante 20 gramos 20 unidades', 'Bells', 4.50, 19),
 (152, 'Muña Cajax20unds Sunka', 'BEBIDAS', '1686979761_muña20und_sunka.jpg', 'Té de muña 100% natural 20 unidades', 'Sunka', 5.50, 11),
@@ -148,7 +154,7 @@ INSERT INTO `productos` (`id`, `nombre`, `categoria`, `imagen`, `descripcion`, `
 (164, 'Zuko limonada Mi tierra', 'BEBIDAS', '1686979761_zuko_limonada.jpg', 'Refresco Instantáneo Sabores de Mi Tierra Limonada Sobre 15 gramos', 'Zuko', 3.50, 17),
 (166, 'Hilo Dental Colgate - 50 M', 'CUIDADO PERSONAL', '1686979761_colgate-hilo-dental-encerado.png', 'Hilo Dental Colgate Menta Paquete 50m', 'Colgate', 12.30, 18),
 (168, 'Gel Antibacterial 1L', 'CUIDADO PERSONAL', '1686979761_Gel.png', 'Gel Antibacterial Instan clean Sin Fragancia Frasco 1L', 'Instan clean', 20.50, 19),
-(170, 'Jabon Protex Pack x3', 'CUIDADO PERSONAL', '1686979761_Jabon.png', 'Pack x3 Jabón Antibacterial Nutri Protect Barra 110 gramos', 'Protex', 11.40, 13),
+(170, 'Jabon Protex Pack x3', 'CUIDADO PERSONAL', '1686979761_Jabon.png', 'Pack x3 Jabón Antibacterial Nutri Protect Barra 110 gramos', 'Protex', 11.40, 12),
 (172, 'Enjuague Bucal 500ml', 'CUIDADO PERSONAL', '1686979761_listerine-coolmint-500ml-front.png', 'Enjuague Bucal Menta 100% Frasco 500ml', 'Listerine', 18.00, 12),
 (173, 'Gillette Prestobarba 4un', 'CUIDADO PERSONAL', '1686979761_Prestobarba-UltraGrip3-4-un.jpg', 'Máquina de Afeitar Prestobarba 3 Bodysense Paquete 4 unidades', 'Gillette', 21.50, 19),
 (174, 'Shampoo Head y Shoulders', 'CUIDADO PERSONAL', '1686979761_Shampoo.png', 'Shampoo con cafeina anticaida 700 ml', 'Head & shoulders', 32.50, 17),
@@ -169,7 +175,8 @@ INSERT INTO `productos` (`id`, `nombre`, `categoria`, `imagen`, `descripcion`, `
 (203, 'Cera Liquida SAPOLIO', 'LIMPIEZA', '1686979761_Cera Liquida.png', 'Cera líquida autobrillante Amarilla Doypack 300Ml', 'Sapolio', 5.50, 17),
 (204, 'Papel Toalla PARACAS', 'LIMPIEZA', '1686979761_Paracas.png', 'Papel higienico Premium x 40 mt – Doble Hoja', 'Paracas', 10.00, 18),
 (206, 'Ambientador SAPOLIO', 'LIMPIEZA', '1686979761_sapolio-ambientador-6-en-1-antitabaco-copia3533.png', 'Ambientador en spray sapolio MelonFrasco 396Ml', 'Sapolio', 6.50, 12),
-(207, 'Insecticida RAID', 'LIMPIEZA', '1686979761_Raid-DobleAccion-360.png', 'Insecticida Raid Doble Acción Frasco 400ml', 'Raid', 13.00, 9);
+(207, 'Insecticida RAID', 'LIMPIEZA', '1686979761_Raid-DobleAccion-360.png', 'Insecticida Raid Doble Acción Frasco 400ml', 'Raid', 13.00, 9),
+(234, 'Pescado Bonito', 'CARNES, AVES Y PESCADOS', '1689014046_pescado_bonito.png', 'Pescado Bonito Entero Fresco - Precio por Kg.', 'Frescura Calidad', 5.49, 13);
 
 -- --------------------------------------------------------
 
@@ -193,11 +200,18 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido_paterno`, `apellido_materno`, `correo`, `password`) VALUES
 (1, 'Alvaro', 'Fernandez', 'Zuloeta', 'afernandez@gmail.com', 'afernandez'),
 (2, 'Miguel', 'Fernandez', 'Zuloeta', 'mzuloeta@gmail.com', 'mzuloeta'),
-(3, 'Pepe', 'Zapata', 'Muñoz', 'pepe@gmail.com', 'pepe1234');
+(3, 'Jose', 'Zapata', 'Muñoz', 'jzapata@gmail.com', 'pepe1234'),
+(4, 'Admin', 'adminP', 'adminM', 'admin@gmail.com', 'admin');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `boletas`
+--
+ALTER TABLE `boletas`
+  ADD PRIMARY KEY (`id_boleta`);
 
 --
 -- Indexes for table `productos`
@@ -216,16 +230,22 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT for table `boletas`
+--
+ALTER TABLE `boletas`
+  MODIFY `id_boleta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

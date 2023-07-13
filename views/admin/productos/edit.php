@@ -2,7 +2,7 @@
     require_once('../templates/head.php');
     require_once('/xampp/htdocs/Web_Proyect/controllers/productosController.php');
     $obj = new productosController();
-    $producto = $obj->showProduct($_GET['id']);
+    $producto = $obj->getProduct($_GET['id']);
 ?>
 
 <div class="row">
@@ -29,8 +29,8 @@
             <div class="mb-3 row">
                 <label for="txtImgProd" class="col-sm-2 col-form-label">Imagen</label>
                 <div class="col-sm-10">
-                    <input type="file" name="txtImgProd" class="form-control" id="txtImgProd"
-                        value="<?= $producto['imagen']?>">
+                    <input type="file" name="txtImgProd" class="form-control" id="txtImgProd">
+                    <input type="hidden" name="imagenRuta" value="<?= $producto['imagen'] ?>">
                 </div>
             </div>
             <div class="mb-3 row">
@@ -46,8 +46,8 @@
                     <select class="form-select" aria-label="Default select example" id="txtCateProd" name="txtCateProd">
                         <?php
                             $categorias = array(
-                            'Bebidas', 'Carnes, aves y pescados', 'Congelados', 'Cuidado Personal',
-                            'Frutas y Verduras', 'Lácteos', 'Limpieza', 'Panadería y Pastelería');
+                            'BEBIDAS', 'CARNES, AVES Y PESCADOS', 'CONGELADOS', 'CUIDADO PERSONAL',
+                            'FRUTAS Y VERDURAS', 'LACTEOS', 'LIMPIEZA', 'PANADERIA Y PASTELERIA');
 
                             foreach ($categorias as $categoria) {
                                 $selected = ($producto['categoria'] == $categoria) ? 'selected' : '';
@@ -68,19 +68,19 @@
                 <label for="txtCostProd" class="col-sm-2 col-form-label">Precio</label>
                 <div class="col-sm-10">
                     <input type="text" name="txtCostProd" class="form-control" id="txtCostProd"
-                        value="<?= $producto['precio']?>">
+                        pattern="[0-9]+(\.[0-9]+)?" value="<?= $producto['precio']?>">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="txtCantProd" class="col-sm-2 col-form-label">Stock</label>
                 <div class="col-sm-10">
                     <input type="number" name="txtCantProd" class="form-control" id="txtCantProd"
-                        value="<?= $producto['stock']?>">
+                        min="0" max="100" value="<?= $producto['stock']?>">
                 </div>
             </div>
             <div>
-                <input type="submit" class="btn btn-success mt-3" value="Actualizar">
-                <a class="btn btn-danger ms-2 mt-3" href="show.php?id=<?= $producto['id']?>">Cancelar</a>
+                <input type="submit" class="btn btn-success mt-3" value="Modificar">
+                <a class="btn btn-secondary ms-2 mt-3" href="show.php?id=<?= $producto['id']?>">Cancelar</a>
             </div>
         </form>
     </div>

@@ -3,7 +3,7 @@
     require_once('../../../controllers/productosController.php');
     $obj = new productosController();
     
-    $date = $obj->showProduct($_GET['id']);
+    $date = $obj->getProduct($_GET['id']);
 ?>
 
 <div class="row">
@@ -11,10 +11,11 @@
         <div class="text-center mb-2">
             <h2 class="text-center">Detalles del registro</h2>
             <img src="/Web_Proyect/assets/images/<?= $date['imagen']?>" alt="image" width="150" height="150">
+            <input type="hidden" name="imagenRuta" value="<?= $date['imagen'] ?>">
         </div>
         <div class="pb-3">
             <a href="index.php" class="btn btn-primary">Regresar</a>
-            <a href="edit.php?id=<?= $date[0];?>" class="btn btn-success">Actualizar</a>
+            <a href="edit.php?id=<?= $date[0];?>" class="btn btn-success">Modificar</a>
             <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Eliminar
             </a>

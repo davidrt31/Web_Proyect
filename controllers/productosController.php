@@ -1,43 +1,43 @@
 <?php
-    require_once('/xampp/htdocs/Web_Proyect/models/productosModel.php');
+    include '/xampp/htdocs/Web_Proyect/models/productosModel.php';
 
     class productosController{
         private $model;
-
-        public function __construct()
-        {
+        public function __construct(){
             $this->model = new productosModel();
         }
-
-        public function guardarProductos($nombre, $txtImgProd, $descripcion, $categoria, $proveedor, $costo, $stock)
-        {   
-            $id = $this->model->insertProduct($nombre, $txtImgProd, $descripcion, $categoria, $proveedor, $costo, $stock);
-            return ($id!=false)? header('Location:show.php?id='.$id): header('Location: create.php');
+        public function insertar($nombre,$categoria,$imagen,$descripcion,$proveedor,$precio,$stock){
+            return ($this->model->insertar(
+                $nombre,$categoria,$imagen,$descripcion,$proveedor,$precio,$stock))
+                ? header("Location:/Web_Proyect/views/admin/productos/index.php") : header("Location:/Web_Proyect/views/admin/productos/create.php");
         }
-
-        public function showProduct($id)
-        {
-            return ($this->model->showProduct($id))!=false ?  $this->model->showProduct($id) : header(Location: index.php);
+        public function getAllProducts(){
+            return ($this->model->getAllProducts() != false) ? $this->model->getAllProducts() : false;
         }
-
-        public function indexProduct()
-        {
-            return ($this->model->indexProduct())? $this->model->indexProduct() : false;
+        public function getProduct($id){
+            return ($this->model->getProduct($id) != false) ? $this->model->getProduct($id) : false;
         }
-
-        public function updateProduct($id,$nombre, $txtImgProd, $descripcion, $categoria, $proveedor, $costo, $stock)
-        {
-            return ($this->model->updateProduct($id, $nombre, $txtImgProd, $descripcion, $categoria, $proveedor, $costo, $stock)!= false ? header('Location:show.php?id='.$id): header('Location: index.php'));
-        }
-
-        public function deleteProduct($id)
-        {
-            return ($this->model->deleteProduct($id)!= false ? header('Location:index.php'): header('Location: show.php?id='.$id));
-        }
-
-        public function getProductsByCategory($categoria)
-        {
+        public function getProductsByCategory($categoria){
             return ($this->model->getProductsByCategory($categoria) != false) ? $this->model->getProductsByCategory($categoria) : false;
+        }
+        public function update($id,$nombre,$categoria,$imagen,$descripcion,$proveedor,$precio,$stock){
+            return ($this->model->update(
+                $id,$nombre,$categoria,$imagen,$descripcion,$proveedor,$precio,$stock))
+                ? header("Location:/Web_Proyect/views/admin/productos/index.php") : header("Location:/Web_Proyect/views/admin/productos/edit.php?id=".$id);
+        }
+
+        public function disminuirStock($id,$cantidad){
+            return ($this->model->disminuirStock($id,$cantidad)) ? true : false;
+        }
+
+        public function delete($id,$pathFile){
+            if($this->model->delete($id)){
+                $ruta_archivo_antiguo = '/xampp/htdocs/Web_Proyect/assets/images/'.$pathFile;
+                file_exists($ruta_archivo_antiguo) ? unlink($ruta_archivo_antiguo) : '';
+                header("Location:/Web_Proyect/views/admin/productos/index.php");
+            }else{
+                header("Location:/Web_Proyect/views/admin/productos/edit.php?id=".$id);
+            }
         }
     }
 ?>

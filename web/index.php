@@ -1,4 +1,6 @@
-<?php require_once('../views/site/templates/header.php')?>
+<?php session_start() ?>
+<?php include '/xampp/htdocs/Web_Proyect/views/site/templates/header.php' ?>
+
 
 </div>
 
