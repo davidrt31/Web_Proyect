@@ -3,7 +3,7 @@
 
     <div class="text-center bg-black text-light">
         <footer>
-            <div class="footer-copyright mt-1">
+            <div class="footer-copyright">
                 <small>&copy;2023 Don Gil Company - Todos los derechos reservados</small>
             </div>
         </footer>
