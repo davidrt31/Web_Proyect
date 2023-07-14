@@ -26,7 +26,7 @@
 
                 foreach($productosCarrito as $productoCar){
                     $producto = $productosBD->getProduct($productoCar[0]);
-                    $textoProducto = $producto['nombre'] . " S/" . $producto['precio'] . " x " . $productoCar[1] . ", ";
+                    $textoProducto = "- ".$producto['nombre'] . " S/" . $producto['precio'] . " x " . $productoCar[1] . "<br>";
                     $productosBoleta = $productosBoleta . $textoProducto;
                     $productosBD->disminuirStock($productoCar[0],$productoCar[1]);
                 }

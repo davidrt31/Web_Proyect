@@ -87,10 +87,10 @@
                         </div>
                     </div>
                     <?php } ?>
-                    <!-- Me gusta la idea del botón para vaciar carrito pero lo veo innecesario
+                        
                         <div class="d-flex justify-content-end">
                         <a class="btn btn-secondary m-2" href="utils/gestionCarrito.php?task=1">VACIAR CARRITO</a>
-                    </div>-->
+                    </div>
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
                                     <span class="col-8">S/. </span>
                                     <div class="col-4">
                                         <input type="text" id="precioTotal" name="precioTotal"
-                                            value="<?= number_format($sumaPrecios,2) ?>" disabled
+                                            value="<?= number_format($sumaPrecios,2) ?>"
                                             style="border: none; background:transparent;" readonly>
                                     </div>
                                 </div>
