@@ -51,7 +51,7 @@
 
                                         <div class="col mt-3">
                                             <div class="row">
-                                                <select class="col-2 ms-2" id="cantidadProducto"
+                                                <!--<select class="col-2 ms-2" id="cantidadProducto"
                                                     style="border: transparent">
                                                     <?php
                                                             $quantities = array(1,2,3,4,5,6,7,8,9,10);
@@ -59,8 +59,10 @@
                                                                 $selected = ($productoAcu[1] == $quantity) ? 'selected' : '';
                                                                 echo "<option value='$quantity' $selected>$quantity</option>";
                                                             }
-                                                        ?>
-                                                </select>
+                                                    ?>
+                                                    </select>-->
+                                                <input class="col-3 " type="text" value="Cantidad: " style="border: none; background:transparent;" disabled readonly>
+                                                <input class="col-2 ms-2" type="text" id="cantidadProducto" value="<?= $productoAcu[1] ?>" style="border: none; background:transparent;" readonly>
                                                 <a id="btnDelete" class="col-3 ms-4 btn"
                                                     href="utils/gestionCarrito.php?task=3&id=<?= $productoAcu[0] ?>"><i
                                                         class="bi bi-trash"></i>Quitar</a>
@@ -87,10 +89,14 @@
                         </div>
                     </div>
                     <?php } ?>
-                        
-                        <div class="d-flex justify-content-end">
-                        <a class="btn btn-secondary m-2" href="utils/gestionCarrito.php?task=1">VACIAR CARRITO</a>
+                    <?php if(count($productosAcumulados) > 0){ ?>
+                    <a class="btn btn-secondary m-2" href="utils/gestionCarrito.php?task=1">VACIAR CARRITO</a>
+                    <?php } else{?>
+                    <div class="container mt-3 text-center">
+                        <h3>No tiene productos en su carrito</h3>
+                        <br>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -119,9 +125,7 @@
                             </div>
                             <hr>
                             <input type="submit" class="btn" id="btnComprar" style="width: 100%;" value="COMPRAR">
-                            <!--<p class="mt-1" style="font-size: 12px; text-align:left">Al continuar, aceptas las <span
-                                        class="text-primary">Condiciones de uso</span> y la <span
-                                        class="text-primary">Política de Privacidad</span>.</p>-->
+                            <p class="mt-1" style="font-size: 12px; text-align:left">Al continuar, aceptas las <span class="text-primary">Condiciones de uso</span> y la <span class="text-primary">Política de Privacidad</span>.</p>
                         </form>
                         <hr>
                         <div class="row">
@@ -146,8 +150,7 @@
 
 <!-- Estilos para que quede bonito xd -->
 <style>
-
-body{
+body {
     overflow-x: hidden;
 }
 
@@ -177,7 +180,6 @@ body{
     border: 0.2px darkblue solid;
     color: darkblue;
 }
-
 </style>
 
 
