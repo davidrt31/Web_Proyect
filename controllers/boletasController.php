@@ -14,5 +14,8 @@
         public function getAllBoletas(){
             return ($this->model->getAllBoletas() != false) ? $this->model->getAllBoletas() : false;
         }
+        public function getBoletafromEmail($email){
+            return ($this->model->getBoletafromEmail($email) !=false) ? $this->model->getBoletafromEmail($email) :false;
+        }
     }
 ?>

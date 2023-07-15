@@ -183,22 +183,6 @@ body{
 
 <!-- Script de la página carrito-->
 <script>
-/*window.addEventListener('DOMContentLoaded', function() {
-    var p1 = document.getElementById('descripcion');
-
-    limitarAltura(p1, 60);
-});
-
-function limitarAltura(elemento, alturaMaxima) {
-    var alturaActual = elemento.clientHeight;
-
-    if (alturaActual > alturaMaxima) {
-        while (elemento.clientHeight > alturaMaxima) {
-            elemento.textContent = elemento.textContent.replace(/\W*\s(\S)*$/, '...');
-        }
-    }
-}*/
-
 window.addEventListener('DOMContentLoaded', function() {
     var limitados = document.getElementsByClassName('limitado');
 

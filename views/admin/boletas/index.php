@@ -15,6 +15,7 @@
             <thead class="table-warning">
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col">CÓDIGO</th>
                     <th scope="col">FECHA</th>
                     <th scope="col">USUARIO</th>
                     <th scope="col">PRODUCTOS</th>
@@ -26,10 +27,11 @@
                     <?php foreach ($rows as $row): ?>
                         <tr>
                             <td scope="row"><?= $row['id_boleta']?></td>
+                            <td scope="row"><?= $row['codigo_boleta']?></td>
                             <td scope="row"><?= $row['fecha']?></td>
                             <td scope="row"><?= $row['usuario']?></td>
                             <td scope="row"><?= $row['productos']?></td>
-                            <td scope="row"><?= $row['pago_total']?></td>
+                            <td scope="row">S/. <?= $row['pago_total']?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>

@@ -196,7 +196,7 @@ $url = "http://" . $url1;
                                     </li>
                                     <?php } else {?>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="<?php echo $url; ?>/views/site/pedidos.php">
                                             <span class="text-white">
                                                 &nbsp;<i class="bi bi-box-seam" style="font-size: 13px"></i>&nbsp; Mis pedidos
                                             </span>
